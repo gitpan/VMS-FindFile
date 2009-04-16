@@ -15,7 +15,7 @@ require DynaLoader;
 use vars qw($VERSION @ISA);
 @ISA = qw(DynaLoader);
 
-$VERSION = '0.91';
+$VERSION = '0.92';
 
 bootstrap VMS::FindFile $VERSION;
 
@@ -53,8 +53,7 @@ __END__
 
 =head1 NAME
 
-VMS::FindFile - Perl extension to return all the file names matching a
-VMS wildcard file specification.
+VMS::FindFile - Returns all file names matching a VMS wildcard specification.
 
 =head1 SYNOPSIS
 

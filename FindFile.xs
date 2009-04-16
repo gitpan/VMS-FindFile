@@ -42,7 +42,7 @@ vmsff_find_file(filespec, context)
 
    PREINIT:
    struct dsc$descriptor_s filespec_dsc;
-   char resultant[256];
+   char resultant[4096]; /* NAML$C_MAXRSS + 1 */
    struct dsc$descriptor_s resultant_dsc;
    int status, i;
    PPCODE:
@@ -67,8 +67,10 @@ vmsff_find_file(filespec, context)
       resultant[0] = '\0';
       context = 0;
    } else {
-      for(i=0; resultant[i] != ' '; i++);
-      resultant[i] = '\0';
+      i = resultant_dsc.dsc$w_length;
+      while (i > 0 && resultant[--i] == ' ');
+      if (i == 0) i--;
+      resultant[i+1] = '\0';
    }
 
    EXTEND(SP,2);

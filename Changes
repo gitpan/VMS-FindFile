@@ -12,3 +12,7 @@ Revision history for Perl extension VMS::FindFile.
 		-A -f -n VMS::FindFile -v 0.91 -O -b 5.4.0 --skip-exporter --skip-autoloader
 
         Uses ppport.h; includes actual working tests.
+
+0.92  Thu Apr 16 2009
+	- Allow longer filenames and filenames with internal spaces.
+	- Test improvements from Carl Friedberg.
